@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="alternate" hreflang="en" href="index.html">
+  <link rel="alternate" hreflang="es" href="index.es.html">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crafted Scripts LLC — Orquestación de agentes con n8n y MCP</title>
+  <meta name="description" content="Creamos agentes de IA autónomos con n8n y servidores MCP que se conectan a sus datos comerciales reales para realizar tareas reales. Crafted Scripts LLC." />
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/brandkit.css">
+  <link rel="stylesheet" href="css/orquesta.css">
+</head>
+<body>
+
+<a class="skip" href="#principal">Saltar al contenido</a>
+
+<nav class="nav">
+  <a class="nav__mark" href="#inicio" aria-label="Crafted Scripts LLC, inicio">
+    <img src="img/logo/logo-principal-oscuro.png" alt="Crafted Scripts LLC" translate="no" width="1024" height="1024">
+  </a>
+  <button class="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="navlinks"><span></span></button>
+  <div class="nav__links" id="navlinks">
+    <a href="#servicios">Orquestación</a>
+    <a href="#servicios">Servidores MCP</a>
+    <a href="#acerca">Acerca de</a>
+    <a class="lang" href="index.html" hreflang="en" lang="en">EN</a>
+    <a class="btn" href="#contacto">Inicializar proyecto</a>
+  </div>
+</nav>
+
+<main id="principal">
+
+  <!-- ============ 1. Portada ============ -->
+  <section class="hero hero--orq" id="inicio" data-chapter="paper">
+    <div class="hero__inner wrap">
+      <div class="hero__logo tilt" data-rise>
+        <img src="img/logo/logo-principal-oscuro.png" alt="Crafted Scripts LLC" translate="no" width="1024" height="1024">
+      </div>
+
+      <h1 class="hero__claim" data-split>
+        <span class="t-soft">Deja de entrenar.</span>
+        <span class="t-full">Comencemos a orquestar.</span>
+      </h1>
+
+      <p class="hero__support" data-rise>La era de los modelos estáticos ha terminado. Creamos agentes de IA autónomos utilizando servidores <span translate="no">n8n</span> y <span translate="no">MCP</span> que se conectan a sus datos comerciales reales para realizar tareas reales.</p>
+
+      <div class="hero__actions" data-rise>
+        <a class="btn" href="#contacto">Crea tu agente</a>
+        <a class="btn btn--pale" href="#proceso">Ver arquitectura</a>
+      </div>
+
+      <p class="hero__note muted" data-rise>Aceptamos clientes empresariales.</p>
+    </div>
+  </section>
+
+  <!-- ============ 2. El núcleo, en marcha ============ -->
+  <section id="nucleo" class="field field--ink" data-chapter="ink">
+    <div class="wrap" data-craft>
+      <h2 class="head" data-rise>Del dato a la acción.</h2>
+      <p class="statement statement--wide muted" style="margin-top:1.1rem" data-rise>Diga dónde están sus datos y qué quiere que haga el agente. Abajo se arma la cadena.</p>
+
+      <div class="craft__controls" style="margin-top:2.5rem">
+        <div class="craft__group">
+          <span>Sus datos viven en…</span>
+          <div class="craft__opts">
+            <label><input type="radio" name="sector" value="crm" checked> Un CRM</label>
+            <label><input type="radio" name="sector" value="bd"> Una base de datos</label>
+            <label><input type="radio" name="sector" value="api"> Una <span translate="no">API</span> interna</label>
+            <label><input type="radio" name="sector" value="hojas"> Hojas de cálculo</label>
+          </div>
+        </div>
+        <div class="craft__group">
+          <span>Y quiere que el agente…</span>
+          <div class="craft__opts">
+            <label><input type="radio" name="meta" value="clasifique" checked> Clasifique</label>
+            <label><input type="radio" name="meta" value="responda"> Responda</label>
+            <label><input type="radio" name="meta" value="genere"> Genere</label>
+            <label><input type="radio" name="meta" value="vigile"> Vigile</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- La cadena: contexto, núcleo, acción -->
+      <div class="pipe flip" data-rise>
+        <div class="flip__face pipe__inner">
+          <figure class="pipe__node pipe__node--in">
+            <figcaption>Contexto</figcaption>
+            <p data-craft-source>Su CRM</p>
+          </figure>
+
+          <span class="pipe__arrow" aria-hidden="true"></span>
+
+          <figure class="pipe__node pipe__node--core">
+            <figcaption>Núcleo de orquestación</figcaption>
+            <p>n8n + MCP</p>
+          </figure>
+
+          <span class="pipe__arrow" aria-hidden="true"></span>
+
+          <figure class="pipe__node pipe__node--out">
+            <figcaption>Acción</figcaption>
+            <p data-craft-title>Clasifica cada registro</p>
+          </figure>
+        </div>
+      </div>
+
+      <ol class="pipe__steps" data-craft-steps>
+        <li>Definimos un esquema <span translate="no">MCP</span> que expone sólo los campos de su CRM que el agente necesita leer.</li>
+        <li>El servidor <span translate="no">MCP</span> entrega ese contexto al modelo en tiempo real, sin copiar sus datos a ningún sitio.</li>
+        <li>En <span translate="no">n8n</span> programamos cuándo clasifica, cuándo pregunta a una persona y qué hace si falla.</li>
+      </ol>
+      <p class="craft__note muted">Un esquema de partida, no una propuesta. La arquitectura real sale de la llamada de descubrimiento.</p>
+    </div>
+  </section>
+
+  <!-- ============ 3. Servicios ============ -->
+  <section id="servicios" class="field field--paper" data-chapter="paper">
+    <div class="wrap">
+      <h2 class="head" data-rise>La arquitectura de la autonomía</h2>
+      <p class="statement statement--wide muted" style="margin-top:1.1rem" data-rise>No nos limitamos a escribir guiones. Creamos sistemas resilientes y autorreparables.</p>
+
+      <div class="alt" style="margin-top:clamp(3rem,7vw,6rem)" data-stagger>
+        <article class="alt__item alt__item--text lift" data-rise>
+          <div class="lift__face">
+            <h3 class="alt__title">Orquestación de IA</h3>
+            <p class="alt__text muted">Utilizamos <span translate="no">n8n</span> para crear flujos de trabajo complejos y multietapa basados en agentes que gestionan las aprobaciones, los bucles y la corrección de errores mejor que el código puro.</p>
+            <ul class="tags"><li>n8n</li><li>LangChain</li><li>Intervención humana</li></ul>
+          </div>
+        </article>
+
+        <article class="alt__item alt__item--text lift" data-rise>
+          <div class="lift__face">
+            <h3 class="alt__title">Desarrollo de servidores MCP</h3>
+            <p class="alt__text muted">El eslabón perdido. Creamos servidores personalizados de Protocolo de Contexto de Modelo (<span translate="no">MCP</span>) que exponen de forma segura sus bases de datos internas y <span translate="no">API</span> a los <span translate="no">LLM</span>.</p>
+            <ul class="tags"><li>MCP de Anthropic</li><li>Puertas de enlace seguras</li><li>Datos en tiempo real</li></ul>
+          </div>
+        </article>
+
+        <article class="alt__item alt__item--text lift" data-rise>
+          <div class="lift__face">
+            <h3 class="alt__title">MLOps e infraestructura</h3>
+            <p class="alt__text muted">Nuestras raíces están en la ingeniería. Implementamos sus modelos en una infraestructura escalable, garantizando un tiempo de actividad del 99,9 % y una baja latencia.</p>
+            <ul class="tags"><li>Docker</li><li>Kubernetes</li><li>CI/CD</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ Lo que desplegamos ============ -->
+  <section id="despliegue" class="field field--ink" data-chapter="ink">
+    <div class="wrap">
+      <h2 class="head" data-rise>Lo que desplegamos</h2>
+      <p class="statement statement--wide muted" style="margin-top:1.1rem" data-rise>No una demo. Un flujo que corre en su nube, con una persona donde hace falta una persona.</p>
+
+      <div class="rail">
+        <button class="rail__btn rail__btn--prev" type="button" aria-label="Pasos anteriores" data-rail="-1">&lsaquo;</button>
+        <button class="rail__btn rail__btn--next" type="button" aria-label="Pasos siguientes" data-rail="1">&rsaquo;</button>
+      <div class="canvas" data-ui data-rise>
+        <div class="canvas__row">
+          <div class="node"><b>Disparador</b><span>Un registro nuevo, un <span translate="no">webhook</span>, un horario</span></div>
+          <span class="wire" style="--wire-d:0ms"></span>
+          <div class="node node--core"><b>Contexto MCP</b><span>Sus datos, acotados por el esquema</span></div>
+          <span class="wire" style="--wire-d:350ms"></span>
+          <div class="node"><b>LLM</b><span>Razona sobre el contexto real</span></div>
+          <span class="wire" style="--wire-d:700ms"></span>
+          <div class="node node--human"><b>Puerta humana</b><span>Aprueba lo que pasa del umbral</span></div>
+          <span class="wire" style="--wire-d:1050ms"></span>
+          <div class="node"><b>Acci&oacute;n</b><span>Escribe, env&iacute;a, archiva, avisa</span></div>
+          <span class="wire" style="--wire-d:1400ms"></span>
+          <div class="node"><b>Reintento y registro</b><span>Se repara solo y deja traza de cada ejecuci&oacute;n</span></div>
+        </div>
+      </div>
+      </div>
+      <p class="canvas__note">Una vista simplificada del grafo <span translate="no">n8n</span> que construimos. El suyo lleva sus sistemas dentro.</p>
+
+      <ul class="deliver" data-stagger>
+        <li class="lift" data-rise><div class="lift__face"><b>El esquema MCP</b><span>Un contrato escrito de qu&eacute; campos exactos puede leer y escribir el modelo.</span></div></li>
+        <li class="lift" data-rise><div class="lift__face"><b>El c&oacute;digo del servidor</b><span>Python o <span translate="no">TypeScript</span>, en su repositorio, suyo para conservar y auditar.</span></div></li>
+        <li class="lift" data-rise><div class="lift__face"><b>Los flujos n8n</b><span>Visuales, editables por su equipo, con los caminos de reintento y aprobaci&oacute;n ya cableados.</span></div></li>
+        <li class="lift" data-rise><div class="lift__face"><b>El despliegue</b><span>En <span translate="no">Docker</span>, sobre su nube privada, con monitorizaci&oacute;n y 99,9 % de disponibilidad.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 4. Cómo elaboramos ============ -->
+  <section id="proceso" class="field field--navy" data-chapter="navy">
+    <div class="wrap">
+      <h2 class="head" data-rise>Cómo elaboramos</h2>
+      <p class="statement statement--wide muted" style="margin-top:1.1rem" data-rise>De los datos brutos a la acción autónoma en cuatro pasos.</p>
+
+      <ol class="steps" data-stagger>
+        <li class="step lift" data-rise>
+          <div class="lift__face">
+            <h3>Diseño de protocolos</h3>
+            <p>Analizamos sus <span translate="no">API</span> y bases de datos internas para definir un esquema seguro de Protocolo de Contexto de Modelo (<span translate="no">MCP</span>).</p>
+          </div>
+        </li>
+        <li class="step lift" data-rise>
+          <div class="lift__face">
+            <h3>Implementación del servidor</h3>
+            <p>Escribimos código <span translate="no">Python</span> o <span translate="no">TypeScript</span> personalizado para construir el servidor <span translate="no">MCP</span>, creando un puente seguro entre sus datos y el <span translate="no">LLM</span>.</p>
+          </div>
+        </li>
+        <li class="step lift" data-rise>
+          <div class="lift__face">
+            <h3>Cableado agéntico</h3>
+            <p>En <span translate="no">n8n</span> programamos visualmente la lógica, definiendo cómo la IA debe razonar, enrutar y reintentar las tareas.</p>
+          </div>
+        </li>
+        <li class="step lift" data-rise>
+          <div class="lift__face">
+            <h3>Endurecimiento de producción</h3>
+            <p>Contenerizamos la solución con <span translate="no">Docker</span> y la desplegamos en su nube privada con monitorización completa.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 5. Nuestra evolución ============ -->
+  <section id="acerca" class="field field--paper" data-chapter="paper">
+    <div class="wrap read">
+      <div class="read__aside muted" data-rise>
+        <p><b>Fundada</b>2023</p>
+        <p><b>Hoy</b>Orquestación total</p>
+        <p><b>Clientes</b>Empresariales</p>
+      </div>
+
+      <div class="read__body" data-rise>
+        <h2 class="read__lead">Nuestra evolución</h2>
+
+        <p>Fundada en 2023, Crafted Scripts LLC comenzó como una empresa especializada en el entrenamiento de modelos, perfeccionando modelos de lenguaje de código abierto para tareas específicas. Pronto aprendimos que un modelo inteligente es inútil sin una buena infraestructura.</p>
+
+        <p>Hoy, en 2026, nos hemos volcado por completo a la orquestación. No solo entrenamos modelos: les damos soporte. Creamos la infraestructura necesaria, servidores <span translate="no">MCP</span> y flujos de trabajo <span translate="no">n8n</span>, que permite que la IA gestione de forma autónoma la infraestructura de su negocio.</p>
+
+        <ol class="era" data-stagger>
+          <li data-rise>
+            <h3>La era de los modelos</h3>
+            <p class="era__when">2023</p>
+            <p class="muted">Ajuste fino de <span translate="no">Llama</span> y <span translate="no">Mistral</span> para tareas de razonamiento específicas.</p>
+          </li>
+          <li data-rise>
+            <h3>El cambio hacia la agencia</h3>
+            <p class="era__when">2024 – 2025</p>
+            <p class="muted">Construyendo los primeros bucles autónomos y sistemas de corrección de errores.</p>
+          </li>
+          <li data-rise>
+            <h3>Orquestación total</h3>
+            <p class="era__when">2026</p>
+            <p class="muted">Automatización empresarial integral para pymes mediante protocolos estándar (<span translate="no">MCP</span>).</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. Consultas frecuentes ============ -->
+  <section id="faq" class="field field--step" data-chapter="step">
+    <div class="wrap">
+      <h2 class="head" data-rise>Consultas frecuentes</h2>
+      <p class="statement statement--wide muted" style="margin-top:1.1rem" data-rise>La transparencia es nuestro protocolo. Así es como trabajamos.</p>
+
+      <div class="faq" data-stagger>
+        <details class="faq__item" data-rise open>
+          <summary>¿Utiliza usted estos agentes para su propio negocio?</summary>
+          <p>Por supuesto. Crafted Scripts LLC es el principal banco de pruebas para todas las arquitecturas que vendemos. Desde la generación de contenido hasta la clasificación de clientes potenciales, utilizamos la misma pila <span translate="no">n8n</span> + <span translate="no">MCP</span> que implementamos para usted. No solo vendemos el software: lo usamos a diario.</p>
+        </details>
+
+        <details class="faq__item" data-rise>
+          <summary>¿Están mis datos confidenciales seguros con <span translate="no">LLM</span>?</summary>
+          <p class="faq__todo">Falta la respuesta: no estaba en la página original.</p>
+        </details>
+
+        <details class="faq__item" data-rise>
+          <summary>¿Qué ocurre si el agente de IA comete un error?</summary>
+          <p class="faq__todo">Falta la respuesta: no estaba en la página original.</p>
+        </details>
+
+        <details class="faq__item" data-rise>
+          <summary>¿Necesito un equipo de ingeniería interno?</summary>
+          <p class="faq__todo">Falta la respuesta: no estaba en la página original.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. Blog ============ -->
+  <section id="blog" class="field field--paper" data-chapter="paper">
+    <div class="wrap">
+      <h2 class="head" data-rise>Análisis</h2>
+
+      <div class="posts" data-stagger>
+        <article class="post lift" data-rise>
+          <a class="lift__face" href="https://www.craftedscriptsllc.ai/blog/the-death-of-static-apis">
+            <h3>La muerte de las <span translate="no">API</span> estáticas</h3>
+            <p class="muted">Cómo los datos dinámicos y la computación perimetral están reescribiendo las reglas.</p>
+            <p class="post__meta">API · 10 de febrero de 2026</p>
+          </a>
+        </article>
+
+        <article class="post lift" data-rise>
+          <a class="lift__face" href="https://www.craftedscriptsllc.ai/blog/the-mcp-protocol-explained">
+            <h3>Explicación del protocolo <span translate="no">MCP</span> para pymes</h3>
+            <p class="muted">Consejos prácticos para la implementación y sus beneficios.</p>
+            <p class="post__meta">MCP · 2 de febrero de 2026</p>
+          </a>
+        </article>
+
+        <article class="post lift" data-rise>
+          <a class="lift__face" href="https://www.craftedscriptsllc.ai/blog/orchestrating-local-n8n-llms">
+            <h3>Orquestación de instancias <span translate="no">n8n</span> locales con <span translate="no">LLM</span> locales</h3>
+            <p class="muted">Una guía práctica para la automatización segura y escalable en el borde de la red.</p>
+            <p class="post__meta">n8n · 24 de enero de 2026</p>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. Inicializar proyecto ============ -->
+  <section id="contacto" class="field field--amber" data-chapter="amber">
+    <div class="wrap read">
+      <div class="read__aside" data-rise>
+        <p><b>Qué pasa después</b>Una llamada de descubrimiento para entender su pila y sus datos.</p>
+        <p><b>Sin compromiso</b>El contrato llega cuando el plan le convence.</p>
+      </div>
+
+      <div data-rise>
+        <h2 class="read__lead">Inicializar proyecto</h2>
+        <p>Deje de malgastar horas de ingeniería en tareas manuales y cuéntenos cuáles son sus necesidades de orquestación.</p>
+
+        <form class="form" action="Enviar.php" method="POST">
+          <label for="nombre">
+            Nombre completo
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required />
+          </label>
+
+          <label for="email">
+            Correo electrónico del trabajo
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </label>
+
+          <label for="empresa">
+            Nombre de la empresa <span class="muted">(opcional)</span>
+            <input type="text" id="empresa" name="empresa" autocomplete="organization" />
+          </label>
+
+          <label for="telefono">
+            Número de teléfono <span class="muted">(opcional)</span>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel" />
+          </label>
+
+          <label for="mensaje">
+            Sus necesidades de orquestación
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          </label>
+
+          <button class="btn btn--ink" type="submit">Solicitar llamada de descubrimiento</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span class="sello" data-rise title="PAMER">
+    <img src="img/logo/sello-pamer.png" alt="PAMER" width="192" height="324" loading="lazy">
+    <span class="sello__txt">Dise&ntilde;o: PAMER</span>
+  </span>
+
+  <img class="foot__symbol" src="img/logo/logo-simbolo-oscuro.png" alt="Crafted Scripts LLC" width="655" height="611" loading="lazy" data-rise>
+
+  <div class="foot__legal" data-rise>
+    <span>&copy; 2026 Crafted Scripts LLC. Todos los derechos reservados.</span>
+    <span><a class="link" href="index.html" hreflang="en" lang="en">English</a></span>
+  </div>
+
+  <p class="foot__fine" data-rise>La informaci&oacute;n recopilada a trav&eacute;s de formularios se utiliza exclusivamente para comunicaciones comerciales. No vendemos datos. Los servicios se prestan mediante contrato. El contenido de este sitio es meramente informativo.</p>
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>

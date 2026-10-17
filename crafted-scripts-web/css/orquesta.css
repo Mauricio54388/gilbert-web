@@ -1,0 +1,612 @@
+/* ============================================================
+   Contenido real de craftedscriptsllc.ai: orquestacion con n8n
+   y servidores MCP. Solo lo que las hojas anteriores no cubren.
+   Paleta del logo principal: azul marino + ambar sobre crema.
+   ============================================================ */
+
+:root { --navy: #19425E; }
+
+/* --- Portada -------------------------------------------------- */
+.hero--orq { text-align: left; }
+.hero--orq .hero__inner { align-items: flex-start; justify-content: center; gap: clamp(1.2rem, 3vw, 2rem); }
+.hero__claim {
+  font-size: clamp(1.75rem, 0.35rem + 5.6vw, 6.5rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  margin: 0;
+}
+.hero__claim > span { display: block; }
+.hero__claim .t-soft { color: var(--muted); }
+.hero__claim .t-full { color: var(--accent); }
+.hero--orq .hero__support { margin: 0; max-width: 54ch; text-align: left; }
+.hero--orq .hero__actions { justify-content: flex-start; }
+.hero__note { font-size: var(--step-small); margin: 0; }
+
+/* --- Campo azul marino ---------------------------------------- */
+.field--navy { background: var(--navy); color: #FDF7F0; }
+.field--navy .muted { color: rgba(253,247,240,0.76); }
+
+/* --- La cadena: contexto, nucleo, accion ---------------------- */
+.pipe { margin-top: clamp(2.5rem, 5vw, 4rem); }
+.pipe__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1.15fr auto 1fr;
+  align-items: stretch;
+  gap: clamp(0.5rem, 1.4vw, 1rem);
+}
+.pipe__node {
+  background: var(--paper-step);
+  border-radius: var(--radius);
+  padding: clamp(1.1rem, 2.4vw, 1.9rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: clamp(7rem, 12vw, 9.5rem);
+}
+.pipe__node figcaption {
+  font-size: var(--step-small);
+  color: var(--muted);
+  margin: 0;
+  order: -1;
+}
+.pipe__node p {
+  margin: 0;
+  font-size: clamp(1.05rem, 0.8rem + 0.9vw, 1.6rem);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.pipe__node--core { background: var(--accent); color: #0A0A0C; }
+.pipe__node--core figcaption { color: rgba(10,10,12,0.72); }
+.pipe__node--out { background: var(--navy); color: #FDF7F0; }
+.pipe__node--out figcaption { color: rgba(253,247,240,0.76); }
+
+.pipe__arrow {
+  align-self: center;
+  width: clamp(1.2rem, 3vw, 2.6rem);
+  height: 2px;
+  background: var(--muted);
+  position: relative;
+}
+.pipe__arrow::after {
+  content: "";
+  position: absolute; right: -1px; top: -4px;
+  border-left: 8px solid var(--muted);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.pipe__steps {
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding-left: 1.2em;
+  display: grid;
+  gap: 0.75rem;
+  max-width: 72ch;
+}
+.pipe__steps li { font-size: var(--step-body); line-height: 1.45; }
+
+@media (max-width: 820px) {
+  .pipe__inner { grid-template-columns: 1fr; }
+  .pipe__arrow { width: 2px; height: clamp(1rem, 4vw, 2rem); justify-self: center; }
+  .pipe__arrow::after { right: -4px; top: auto; bottom: -1px;
+    border-left: 5px solid transparent; border-right: 5px solid transparent;
+    border-top: 8px solid var(--muted); border-bottom: 0; }
+}
+
+/* --- Etiquetas de pila tecnologica ---------------------------- */
+.tags {
+  display: flex; flex-wrap: wrap; gap: 0.45rem;
+  list-style: none; margin: 1.2rem 0 0; padding: 0;
+}
+.tags li {
+  font-size: var(--step-small);
+  padding: 0.4em 0.85em;
+  border-radius: var(--radius-pill, 999px);
+  background: var(--paper-step);
+  color: var(--ink);
+}
+
+/* --- Los cuatro pasos ----------------------------------------- */
+.steps {
+  list-style: none;
+  margin: clamp(2.5rem, 6vw, 4.5rem) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: clamp(1rem, 2.4vw, 1.8rem);
+}
+.step > div {
+  background: rgba(253,247,240,0.08);
+  border-radius: var(--radius);
+  padding: clamp(1.3rem, 2.8vw, 2rem);
+  height: 100%;
+}
+.step h3 { font-size: var(--step-lead); margin-bottom: 0.6rem; }
+.step p { font-size: var(--step-body); color: rgba(253,247,240,0.78); max-width: 38ch; }
+
+/* --- La evolucion --------------------------------------------- */
+.era {
+  list-style: none;
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2.2rem);
+}
+.era h3 { font-size: var(--step-lead); margin-bottom: 0.25rem; }
+.era__when { font-size: var(--step-body); color: var(--accent); font-weight: 600; margin: 0 0 0.35rem; }
+.era p { max-width: 54ch; }
+
+/* --- Consultas frecuentes ------------------------------------- */
+.faq { margin-top: clamp(2.5rem, 5vw, 4rem); display: grid; gap: 0.6rem; max-width: 74ch; }
+.faq__item {
+  background: var(--paper-step);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 2.2vw, 1.6rem) clamp(1.1rem, 2.4vw, 1.8rem);
+}
+.faq__item summary {
+  cursor: pointer;
+  font-size: var(--step-lead);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  list-style: none;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: "+";
+  float: right;
+  margin-left: 1rem;
+  color: var(--accent);
+  font-weight: 400;
+  transition: transform 260ms var(--ease);
+  display: inline-block;
+}
+.faq__item[open] summary::after { content: "\2212"; }
+.faq__item p { margin: 1rem 0 0; max-width: 66ch; color: var(--muted); }
+.faq__todo { color: var(--accent); }
+
+/* --- Analisis / blog ------------------------------------------ */
+.posts {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: clamp(1rem, 2.4vw, 1.8rem);
+}
+.post a {
+  display: block;
+  height: 100%;
+  background: var(--paper-step);
+  border-radius: var(--radius);
+  padding: clamp(1.3rem, 2.8vw, 2rem);
+  text-decoration: none;
+}
+.post h3 { font-size: var(--step-lead); margin-bottom: 0.6rem; }
+.post p { font-size: var(--step-body); }
+.post__meta { margin-top: 1.2rem; color: var(--accent); font-size: var(--step-small); }
+
+/* --- El formulario sobre el campo ambar ----------------------- */
+.field--amber .form input,
+.field--amber .form textarea { background: #FDF7F0; color: #0A0A0C; border-color: transparent; }
+.field--amber .form input:focus,
+.field--amber .form textarea:focus { border-color: #0A0A0C; }
+.field--amber .read__aside { color: rgba(10,10,12,0.8); }
+.field--amber .read__lead { color: #0A0A0C; }
+
+/* --- Correcciones medidas ------------------------------------- */
+/* la invitacion del pie cabe en dos lineas */
+.foot__invite { max-width: 20ch; }
+
+/* las opciones deben verse sobre el campo oscuro */
+.field--ink .craft__opts label {
+  background: rgba(253,247,240,0.1);
+  color: #FDF7F0;
+}
+.field--ink .craft__opts label:hover { background: rgba(253,247,240,0.22); color: #FDF7F0; }
+.field--ink .craft__opts label:has(input:checked) { background: var(--accent); color: #0A0A0C; }
+.field--ink .craft__group > span { color: #FDF7F0; }
+.field--ink .pipe__node { background: #141418; color: #FDF7F0; }
+.field--ink .pipe__node--core { background: var(--accent); color: #0A0A0C; }
+.field--ink .pipe__node--out { background: var(--navy); color: #FDF7F0; }
+.field--ink .pipe__steps li { color: rgba(253,247,240,0.86); }
+.field--ink .tags li { background: rgba(253,247,240,0.1); color: #FDF7F0; }
+
+/* cada frase del titular ocupa su linea entera y no se parte */
+.hero__claim > span { white-space: nowrap; }
+
+/* la invitacion del pie es un parrafo: se queda en tamano de afirmacion */
+.foot__invite { font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem); max-width: 22ch; }
+
+/* --- Conmutador de idioma ------------------------------------- */
+.lang {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.nav__links .lang { opacity: 0.75; }
+.nav__links .lang:hover { opacity: 1; }
+
+/* ============================================================
+   Portada centrada: el logotipo manda, las letras entran una a
+   una y el conjunto respira en 3D.
+   ============================================================ */
+.hero--orq { text-align: center; }
+.hero--orq .hero__inner {
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.4rem, 3.2vw, 2.4rem);
+  text-align: center;
+}
+.hero--orq .hero__support { margin-inline: auto; text-align: center; max-width: 56ch; }
+.hero--orq .hero__actions { justify-content: center; }
+
+/* El logotipo, grande y vivo */
+.hero__logo {
+  width: clamp(150px, 20vw, 290px);
+  aspect-ratio: 1;
+  background: #FDF7F0;
+  border-radius: clamp(20px, 3vw, 34px);
+  padding: clamp(0.9rem, 2vw, 1.6rem);
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+  animation: flota 7s ease-in-out infinite;
+}
+.hero__logo img { width: 100%; height: auto; }
+
+@keyframes flota {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+  50%      { transform: translate3d(0, -14px, 30px) rotateX(3deg) rotateY(-3deg); }
+}
+
+/* El titular, mas grande y centrado */
+.hero__claim {
+  font-size: clamp(2rem, 0.2rem + 6.6vw, 7.5rem);
+  line-height: 0.9;
+  margin-inline: auto;
+}
+.hero__claim > span { display: block; white-space: nowrap; }
+
+/* --- Las palabras entran una a una, girando ------------------ */
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: perspective(700px) translate3d(0, 0.5em, -80px) rotateX(55deg);
+  transform-origin: 50% 100%;
+  transition: opacity 620ms var(--ease), transform 720ms var(--ease);
+  transition-delay: var(--wd, 0ms);
+}
+.word.is-in { opacity: 1; transform: perspective(700px) translate3d(0,0,0) rotateX(0); }
+html:not(.js) .word { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__logo { animation: none; }
+  .word { opacity: 1 !important; transform: none !important; }
+}
+
+/* --- Los titulares de seccion, mas grandes y centrados ------- */
+.field .head {
+  font-size: clamp(2rem, 0.9rem + 4.6vw, 5.5rem);
+  letter-spacing: -0.045em;
+}
+.field--paper > .wrap > .head,
+.field--ink > .wrap > .head,
+.field--navy > .wrap > .head,
+.field--step > .wrap > .head { text-align: center; margin-inline: auto; }
+.field--paper > .wrap > .statement,
+.field--ink > .wrap > .statement,
+.field--navy > .wrap > .statement,
+.field--step > .wrap > .statement { margin-inline: auto; text-align: center; }
+
+/* los controles de la cadena, centrados bajo su titular */
+.craft__controls { justify-items: center; }
+.craft__group { text-align: center; }
+.craft__opts { justify-content: center; }
+
+/* ============================================================
+   Lo que se entrega, dibujado: un lienzo de flujo al estilo n8n
+   y la pila de despliegue. Es su producto, no una foto de banco.
+   ============================================================ */
+.canvas {
+  margin-top: 0;
+  background: #0E0E12;
+  border: 1px solid rgba(253,247,240,0.1); /* taste-skill-ignore: lienzo data-ui, conserva sus bordes */
+  border-radius: var(--radius);
+  padding: clamp(1.2rem, 3vw, 2.4rem);
+  overflow-x: auto;
+}
+.canvas__row {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(0.6rem, 1.6vw, 1.1rem);
+  min-width: max-content;
+}
+.node {
+  min-width: clamp(8.5rem, 13vw, 11rem);
+  background: #17171D;
+  border: 1px solid rgba(253,247,240,0.14); /* taste-skill-ignore: nodo de interfaz data-ui */
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  display: grid;
+  gap: 0.3rem;
+  align-content: start;
+  transition: transform 420ms var(--ease), border-color 420ms var(--ease);
+}
+.node:hover { transform: translate3d(0,-6px,22px); border-color: var(--accent); }
+.node b { font-size: var(--step-small); color: var(--accent); font-weight: 600; }
+.node span { font-size: var(--step-small); color: rgba(253,247,240,0.72); line-height: 1.35; }
+.node--core { border-color: var(--accent); background: #1C1710; }
+.node--human { border-color: var(--navy); background: #121A24; }
+.node--human b { color: #7FB2E5; }
+
+.wire {
+  align-self: center;
+  width: clamp(0.9rem, 2vw, 1.8rem);
+  height: 2px;
+  background: rgba(253,247,240,0.28);
+  flex: none;
+  position: relative;
+}
+.wire::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--accent);
+  transform-origin: left;
+  animation: pulso 2.8s ease-in-out infinite;
+  animation-delay: var(--wire-d, 0ms);
+}
+@keyframes pulso {
+  0%, 100% { transform: scaleX(0); opacity: 0; }
+  35%      { transform: scaleX(1); opacity: 1; }
+  70%      { transform: scaleX(1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .wire::after { animation: none; opacity: 0; } }
+
+.canvas__note { margin-top: 1.2rem; font-size: var(--step-small); color: rgba(253,247,240,0.6); }
+
+/* Lo que recibe */
+.deliver {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: clamp(1rem, 2.4vw, 1.8rem);
+  list-style: none; padding: 0;
+}
+.deliver li {
+  background: rgba(253,247,240,0.06);
+  border-radius: var(--radius);
+  padding: clamp(1.1rem, 2.4vw, 1.7rem);
+}
+.deliver b { display: block; font-size: var(--step-lead); margin-bottom: 0.4rem; letter-spacing: -0.02em; }
+.deliver span { font-size: var(--step-body); color: rgba(253,247,240,0.76); }
+
+/* --- El logo ya es transparente: fuera las placas crema ------- */
+.nav__mark { background: transparent; padding: 0; border-radius: 0; }
+.nav__mark img { border-radius: 0; }
+.hero__logo {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  width: clamp(170px, 23vw, 330px);
+}
+
+/* ============================================================
+   Carrusel del grafo: scroll-snap nativo (tacto y trackpad
+   siguen funcionando) con dos botones y sin barra a la vista.
+   ============================================================ */
+.rail {
+  position: relative;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+.rail .canvas {
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: clamp(1.2rem, 3vw, 2.4rem);
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+.rail .canvas::-webkit-scrollbar { display: none; }
+.rail .node { scroll-snap-align: start; }
+
+/* el ultimo nodo no se queda pegado al borde */
+.rail .canvas__row::after {
+  content: "";
+  flex: none;
+  width: clamp(1.2rem, 3vw, 2.4rem);
+}
+
+.rail__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: clamp(2.4rem, 3.4vw, 3rem);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #0A0A0C;
+  font: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 260ms var(--ease), transform 260ms var(--ease), opacity 260ms var(--ease);
+}
+.rail__btn:hover { background: var(--accent-deep); transform: translateY(-50%) scale(1.08); }
+.rail__btn:active { transform: translateY(-50%) scale(0.94); }
+.rail__btn--prev { left: calc(-1 * clamp(0.6rem, 1.6vw, 1.4rem)); }
+.rail__btn--next { right: calc(-1 * clamp(0.6rem, 1.6vw, 1.4rem)); }
+.rail__btn[disabled] { opacity: 0.25; cursor: default; pointer-events: none; }
+
+@media (max-width: 680px) {
+  .rail__btn--prev { left: 0.2rem; }
+  .rail__btn--next { right: 0.2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail .canvas { scroll-behavior: auto; }
+  .rail__btn:hover, .rail__btn:active { transform: translateY(-50%); }
+}
+
+/* ============================================================
+   Hamburguesa para movil y tablet. Sin JS los enlaces se ven
+   igual: el boton solo aparece cuando hay JS para plegarlos.
+   ============================================================ */
+.burger { display: none; }
+
+html.js .burger {
+  width: 2.4rem; height: 2.4rem;
+  border: 0; border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  flex: none;
+}
+html.js .burger span,
+html.js .burger::before,
+html.js .burger::after {
+  content: "";
+  position: absolute;
+  left: 50%; width: 1.05rem; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: transform 300ms var(--ease), opacity 200ms var(--ease);
+}
+html.js .burger::before { top: 0.85rem; }
+html.js .burger span    { top: 1.15rem; }
+html.js .burger::after  { top: 1.45rem; }
+
+html.js .burger[aria-expanded="true"]::before { transform: translateX(-50%) translateY(0.3rem) rotate(45deg); }
+html.js .burger[aria-expanded="true"] span    { opacity: 0; }
+html.js .burger[aria-expanded="true"]::after  { transform: translateX(-50%) translateY(-0.3rem) rotate(-45deg); }
+
+@media (max-width: 1024px) {
+  html.js .burger { display: block; order: 3; }
+
+  html.js .nav { flex-wrap: nowrap; }
+
+  html.js .nav__links {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    width: max-content;
+    min-width: 13rem;
+    margin: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.1rem;
+    padding: 0.5rem;
+    background: rgba(18,18,22,0.96);
+    backdrop-filter: blur(14px); /* taste-skill-ignore: panel del menu */
+    border-radius: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.97);
+    transform-origin: 100% 0;
+    /* visibility fuera de la transicion: es discreta y se queda pillada */
+    transition: opacity 240ms var(--ease), transform 300ms var(--ease);
+  }
+  html.js .nav__links[data-open] {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  html.js .nav__links a { padding: 0.7em 0.9em; border-radius: 12px; text-align: left; }
+  html.js .nav__links .btn { text-align: center; margin-top: 0.3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .nav__links { transition: none; transform: none; }
+  html.js .nav__links[data-open] { transform: none; }
+  html.js .burger span, html.js .burger::before, html.js .burger::after { transition: none; }
+}
+
+/* ============================================================
+   Pie: solo el simbolo, y mucho menos aire. Al quitar el
+   logotipo gigante recortado quedaba un hueco enorme.
+   ============================================================ */
+.foot { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
+.foot__symbol {
+  width: clamp(44px, 5vw, 64px);
+  height: auto;
+  margin-bottom: 1.1rem;
+}
+.foot__invite { font-size: clamp(1.3rem, 1rem + 1.5vw, 2rem); max-width: 20ch; margin-bottom: 1.2rem; }
+.foot__top { align-items: start; }
+.credits { padding-top: clamp(2rem, 4vw, 3rem); }
+.credits p { font-size: var(--step-small); }
+.foot__legal {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* --- Pie minimo: el simbolo y la letra pequena ---------------- */
+.foot {
+  padding: clamp(3rem, 6vw, 5rem) var(--margin) clamp(2rem, 4vw, 3rem);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: clamp(1.2rem, 2.5vw, 2rem);
+}
+.foot__symbol { width: clamp(52px, 6vw, 78px); margin: 0; }
+.foot__legal {
+  margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1.5rem;
+  font-size: var(--step-small);
+}
+.foot__fine {
+  margin: 0;
+  max-width: 76ch;
+  font-size: var(--step-small);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* --- Pie: lo mas discreto posible ----------------------------- */
+.foot {
+  padding: clamp(2rem, 4vw, 3rem) var(--margin) clamp(1.4rem, 2.5vw, 2rem);
+  gap: clamp(0.9rem, 1.8vw, 1.3rem);
+}
+.foot__symbol { width: clamp(34px, 3.4vw, 46px); opacity: 0.55; transition: opacity 320ms var(--ease); }
+.foot__symbol:hover { opacity: 1; }
+.foot__legal { color: var(--muted); gap: 0.3rem 1.2rem; }
+.foot__fine { max-width: 72ch; opacity: 0.6; line-height: 1.45; }
+
+/* --- El sello de autor: discreto, no compite con el cliente --- */
+.sello {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  opacity: 0.38;
+  transition: opacity 320ms var(--ease);
+}
+.sello:hover { opacity: 0.85; }
+.sello img { width: auto; height: clamp(20px, 2.2vw, 28px); display: block; }
+.sello__txt {
+  font-size: var(--step-small);
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+/* --- Pie: la cabeza del cliente al centro, el sello a la izquierda --- */
+.foot { position: relative; }
+.foot__symbol { width: clamp(40px, 4.4vw, 58px); opacity: 0.7; }
+.foot__symbol:hover { opacity: 1; }
+
+.sello {
+  position: absolute;
+  left: var(--margin);
+  top: clamp(2rem, 4vw, 3rem);
+  opacity: 0.3;
+}
+.sello:hover { opacity: 0.8; }
+
+/* En pantallas estrechas el sello vuelve al flujo para no solaparse */
+@media (max-width: 760px) {
+  .sello { position: static; left: auto; top: auto; margin-bottom: 0.2rem; }
+  .foot { padding-top: clamp(1.8rem, 4vw, 2.5rem); }
+}
